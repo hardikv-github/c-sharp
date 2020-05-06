@@ -18,3 +18,11 @@ EntityCollection productsResults = new EntityCollection();
                                     </fetch>";
             productsResults = service.RetrieveMultiple(new FetchExpression(fetchQuery));
             string productNumberData = ((AliasedValue)productsResults[0].Attributes["ab.productnumber"]).Value.ToString();
+
+
+            if (productsResults.Entities.Count > 0)
+            {                        
+                        for (int i = 0; i < productsResults.Entities.Count(); i++)
+                        {
+                        }
+            }
