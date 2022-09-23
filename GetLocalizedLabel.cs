@@ -19,11 +19,11 @@ public static List<OptionSetDetails> GetOptionSetValueLabel(string entityName, s
             return listOptions;
         }
 
-        public static string GetBoolText(string entitySchemaName, string attributeSchemaName, bool value)
+        public static string GetBoolText(string entityName, string fieldName, bool value)
         {
             RetrieveAttributeRequest attRequest = new RetrieveAttributeRequest();
-            attRequest.EntityLogicalName = entitySchemaName;
-            attRequest.LogicalName = attributeSchemaName;
+            attRequest.EntityLogicalName = entityName;
+            attRequest.LogicalName = fieldName;
             attRequest.RetrieveAsIfPublished = true;
 
             RetrieveAttributeResponse retrieveAttributeResponse = (RetrieveAttributeResponse)Service.Execute(attRequest);
