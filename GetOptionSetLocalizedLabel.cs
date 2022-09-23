@@ -18,3 +18,10 @@ public List<OptionSetDetails> GetOptionSetValueLabel(string entityName, string f
             }
             return listOptions;
         }
+
+
+public class OptionSetDetails
+    {
+        public int? Value { get; set; }
+        public string Text { get; set; }
+    }
