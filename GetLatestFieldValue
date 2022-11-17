@@ -1,0 +1,13 @@
+private T GetField<T>(string field)
+        {
+            if (Target.Contains(field)) //Target has priority
+                return Target.GetAttributeValue<T>(field);
+            if (MessageName != ContextMessageName.Create && PreImage.Contains(field))
+                return PreImage.GetAttributeValue<T>(field);
+            if (MessageName != ContextMessageName.Create && !Target.Contains(field) && !PreImage.Contains(field))
+                return default(T);
+            if (MessageName == ContextMessageName.Create && !Target.Contains(field))
+                return default(T);
+
+            throw new Exception("error_MissingField");
+        }
