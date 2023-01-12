@@ -1,0 +1,12 @@
+public String getDataType(string EntityLogicalName, string FieldLogicalName)
+        {
+            RetrieveAttributeRequest attributeRequest = new RetrieveAttributeRequest
+            {
+                EntityLogicalName = EntityLogicalName,
+                LogicalName = FieldLogicalName,
+                RetrieveAsIfPublished = false
+            };
+            RetrieveAttributeResponse attributeResponse =
+                (RetrieveAttributeResponse)Service.Execute(attributeRequest);
+            return (attributeResponse.AttributeMetadata.AttributeType).ToString();
+        }
